@@ -13,15 +13,19 @@ document.body.onload = addElement;
 function addElement() {
       for (let i = 0; i < contenu.length; i++) {
             //Création du row
-            let newDiv = document.createElement("div");
+            let newRow = document.createElement("div");
             //Attribution de la classe row en Bootstrap
-            newDiv.className = "row justify-content-center";
+            newRow.className = "row justify-content-center";
             //Attribution de l'id 
-            newDiv.id = "row numero " + i;
+            newRow.id = "row numero " + i;
+
+            //Création du conteneur à l'intérieur du row
+            let newContainer = document.createElement("div");
+            newContainer.className = "container-fluid";
 
             //Titre
             let titreDiv = document.createElement("div");
-            titreDiv.className = "titreVideo";
+            titreDiv.className = "row titreVideo";
             titreDiv.id = "titre de la video" + i;
             let titreContenu = document.createTextNode(contenu[i].titre);
             titreDiv.appendChild(titreContenu);
@@ -29,7 +33,7 @@ function addElement() {
 
             //Video
             let divVideo = document.createElement("div");
-            divVideo.className = "videoYoutube";
+            divVideo.className = "row videoYoutube";
             divVideo.id = "video" + i;
             let urlVideo = document.createElement("iframe");
             urlVideo.width=889; 
@@ -42,18 +46,19 @@ function addElement() {
 
             //Corps
             let divCorps = document.createElement("div");
-            divCorps.className = "description";
+            divCorps.className = "row description";
             divCorps.id = "corps" + i;
             let corpsContenu = document.createTextNode(contenu[i].corps);
             divCorps.appendChild(corpsContenu);
 
 
             //Assemblage
-            newDiv.appendChild(titreDiv);
-            newDiv.appendChild(divVideo);
-            newDiv.appendChild(divCorps);
+            newContainer.appendChild(titreDiv);
+            newContainer.appendChild(divVideo);
+            newContainer.appendChild(divCorps);
+            newRow.appendChild(newContainer);
 
       let currentDiv = document.getElementById('videos');
-      currentDiv.appendChild(newDiv);
+      currentDiv.appendChild(newRow);
 }
 }
