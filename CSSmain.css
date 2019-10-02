@@ -23,6 +23,8 @@
 
 .titreVideo{
     font: small-caps bold 24px/1 sans-serif;
+
+    margin-top: 5vh;
 }
 
 .filTwitter{
@@ -30,9 +32,17 @@
 }
 
 .videoYoutube{
-    
+    margin-top: 3vh;
 }
 
 .description{
-    
+    margin-top: 2vh;
+}
+
+.interview{
+    padding: 5vh;
+}
+
+.containerInterview{
+    border-color: black;
 }
